@@ -1,0 +1,115 @@
+.getMembersContainer {
+  border: 2px solid red;
+}
+.title {
+  text-transform: capitalize;
+  text-align: center;
+}
+.seeContainers {
+  border: 2px solid green;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+  padding: 2rem;
+}
+.ActualContainers {
+  border: 2px solid black;
+  width: 30rem;
+  padding: 1rem;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  border-radius: 10px;
+  transition: all 6s ease-in-out;
+}
+.formContainer {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+}
+.bookImage {
+  border: 2px solid red;
+  width: 12rem;
+  height: 12rem;
+  border-radius: 10px;
+  transition: all 2s ease-in-out;
+  overflow: hidden;
+}
+.bookImage img {
+  object-fit: cover;
+  width: 100%;
+  height: 100%;
+}
+.bookDetails {
+  text-align: center;
+  text-transform: capitalize;
+  padding: 1rem;
+  border: 2px solid red;
+}
+.bookDetails h3 {
+  font-weight: bold;
+  font-family: var(--secondary-font);
+}
+.bookDetails p {
+  font-family: var(--primary-font);
+}
+.bookDetails h5 {
+  background-color: var(--yellow-color);
+  color: black;
+  font-family: var(--secondary-font);
+}
+.rentNow {
+  border: none;
+  border-radius: 5px;
+  background-color: black;
+  color: var(--yellow-color);
+  text-transform: capitalize;
+  font-size: 1rem;
+  width: 6rem;
+  font-weight: 600;
+  height: 3rem;
+  transition: all 1s ease-in-out;
+}
+.rentNow:hover {
+  background-color: var(--yellow-color);
+  color: var(--primary-color);
+}
+.button2 {
+  display: flex;
+  gap: 2rem;
+  justify-content: center;
+  align-items: center;
+  padding: 1rem;
+  border: 2px solid green;
+}
+.button2 button {
+  border: none;
+  padding: 1rem;
+  border-radius: 10px;
+  cursor: pointer;
+  text-transform: capitalize;
+}
+.true {
+  background-color: green;
+  color: white;
+}
+.false {
+  background-color: red;
+  color: white;
+}
+.formAdmin {
+  min-height: 100vh;
+}
+.showimg {
+  width: 10rem;
+}
+.showimg img {
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: cover;
+}

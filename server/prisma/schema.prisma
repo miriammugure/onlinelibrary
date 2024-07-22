@@ -1,0 +1,58 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+// Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?
+// Try Prisma Accelerate: https://pris.ly/cli/accelerate-init
+
+generator client {
+  provider = "prisma-client-js"
+}
+model user{
+  id String @id @default(uuid()) @map("id")
+  firstName String @map("firstName")
+  lastName String @map("lastName")
+  emailAddress String @map("emailAddress") @unique
+  phoneNumber Int @map("phoneNumber")
+  password String @map("password")
+  role String @default("user") @map("role")
+  createdAt DateTime @default(now()) @map("createdAt")
+  updatedAt DateTime @updatedAt @map("updatedAt")
+  approvedAccount Boolean? @default(false) @map("approvedAccount")
+  bookings         Booking[]
+  @@map("users_table")
+
+
+}
+model books{
+  id String @id @default(uuid()) @map("id")
+  image String @map("imgUrl") @unique
+  title String @map("title") @unique
+  description String @map("description")
+   author String @map("author")
+  amount Int @map("amount")
+   createdAt DateTime @default(now()) @map("createdAt")
+  updatedAt DateTime @updatedAt @map("updatedAt")
+  bookings    Booking[]
+  @@map("books_table")
+
+
+}
+model Booking {
+  id          String   @id @default(uuid()) @map("id")
+  userId      String   @map("userId")
+  bookId      String   @map("bookId")
+  amount      Int      @map("amount")
+  title     String @map("title")
+  rentDate    DateTime @map("rentDate")
+  returnDate  DateTime @map("returnDate")
+ 
+  
+  user        user     @relation(fields: [userId], references: [id])
+  book        books     @relation(fields: [bookId], references: [id])
+
+  @@map("bookings_table")
+}
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
