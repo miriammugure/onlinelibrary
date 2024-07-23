@@ -1,22 +1,25 @@
-import React, { useState, useEffect, useContext } from "react";
-import { useParams } from "react-router-dom";
+import React, { useState, useEffect } from "react";
+import { useParams, useNavigate } from "react-router-dom";
 import toast from "react-simple-toasts";
 import "react-simple-toasts/dist/theme/dark.css";
 import "react-simple-toasts/dist/theme/failure.css";
 import "react-simple-toasts/dist/theme/success.css";
-import { useNavigate } from "react-router-dom";
 
 function Updating() {
   const { id } = useParams();
-
-  const [book, setBook] = useState(null);
+  const [book, setBook] = useState({
+    image: "",
+    title: "",
+    description: "",
+    author: "",
+    amount: "",
+  });
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(false);
   const navigate = useNavigate();
 
   const getUpdateBook = async () => {
     try {
-      console.log(`Fetching book with ID: ${id}`);
       const response = await fetch(
         `http://localhost:3000/api/books/members/getbooks/${id}`,
         {
@@ -29,17 +32,15 @@ function Updating() {
       }
 
       const data = await response.json();
-      console.log("Fetched Book Data:", data);
-      toast(data.message, { theme: "success" });
       setBook(data);
     } catch (error) {
-      console.log("Error fetching book:", error);
       toast(error.message, { theme: "failure" });
       setError(true);
     } finally {
       setLoading(false);
     }
   };
+
   const handleSubmit = async (e) => {
     e.preventDefault();
 
@@ -51,19 +52,13 @@ function Updating() {
           headers: {
             "Content-Type": "application/json",
           },
-          body: JSON.stringify({
-            image: book.image,
-            amount: book.amount,
-            title: book.title,
-            description: book.description,
-          }),
+          body: JSON.stringify(book),
           credentials: "include",
         },
       );
 
       if (!response.ok) {
         const errorText = await response.text();
-        console.log("Error response:", errorText);
         throw new Error(`HTTP error! status: ${response.status}`);
       }
 
@@ -75,7 +70,6 @@ function Updating() {
         toast(data.message, { theme: "failure" });
       }
     } catch (error) {
-      console.log("Error updating:", error);
       toast(error.message, { theme: "failure" });
     }
   };
@@ -87,33 +81,59 @@ function Updating() {
   return (
     <div className="bookingContainer">
       <div className="title">
-        <h3>update book</h3>
+        <h3>Update Book</h3>
       </div>
       <div className="actualBooking">
         {loading ? (
           <p>Loading...</p>
         ) : error ? (
           <p>Error loading book</p>
-        ) : book ? (
-          <>
-            <form onSubmit={handleSubmit}>
-              <label htmlFor="title">Title</label>
-              <input type="text" value={book.title} readOnly />
-
-              <label htmlFor="amount">Amount</label>
-              <input type="text" value={book.amount} readOnly />
-
-              <label htmlFor="description">description</label>
-              <input type="text" value={book.description} />
-
-              <label htmlFor="image">image</label>
-              <input type="file" value={book.image} />
-
-              <button type="submit">update book</button>
-            </form>
-          </>
         ) : (
-          <p>Book not found</p>
+          <form onSubmit={handleSubmit} className="book">
+            <label htmlFor="title">Title</label>
+            <input
+              type="text"
+              value={book.title}
+              onChange={(e) => setBook({ ...book, title: e.target.value })}
+              required
+            />
+
+            <label htmlFor="amount">Amount</label>
+            <input
+              type="text"
+              value={book.amount}
+              onChange={(e) => setBook({ ...book, amount: e.target.value })}
+              required
+            />
+
+            <label htmlFor="description">Description</label>
+            <input
+              type="text"
+              value={book.description}
+              onChange={(e) =>
+                setBook({ ...book, description: e.target.value })
+              }
+              required
+            />
+
+            <label htmlFor="image">Image</label>
+            <input
+              type="text"
+              value={book.image}
+              onChange={(e) => setBook({ ...book, image: e.target.value })}
+              required
+            />
+
+            <label htmlFor="author">Author</label>
+            <input
+              type="text"
+              value={book.author}
+              onChange={(e) => setBook({ ...book, author: e.target.value })}
+              required
+            />
+
+            <button type="submit">Update Book</button>
+          </form>
         )}
       </div>
     </div>

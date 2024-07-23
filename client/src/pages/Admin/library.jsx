@@ -4,11 +4,12 @@ import "react-simple-toasts/dist/theme/dark.css";
 import "react-simple-toasts/dist/theme/failure.css";
 import "react-simple-toasts/dist/theme/success.css";
 import Dashboard from "../../components/Dashboard/Dashboard";
+import { useNavigate } from "react-router-dom";
 
 function Library() {
   const [loading, setLoading] = useState(false);
   const [books, setBooks] = useState([]);
-
+  const navigate = useNavigate();
   const deleteBook = async (id) => {
     try {
       setLoading(true);
@@ -63,6 +64,10 @@ function Library() {
     fetchBooks();
   }, []);
 
+  const handleUpdate = (id) => {
+    navigate(`/Updating/${id}`);
+  };
+
   return (
     <div>
       <div className="getMembersContainer">
@@ -88,7 +93,12 @@ function Library() {
                       <p>{currentBook.description}</p>
                       <h5>${currentBook.amount} per/day</h5>
                       <div className="button2">
-                        <button className="true">update</button>
+                        <button
+                          className="true"
+                          onClick={() => handleUpdate(currentBook.id)}
+                        >
+                          update
+                        </button>
                         <button
                           className="false"
                           onClick={() => deleteBook(currentBook.id)}

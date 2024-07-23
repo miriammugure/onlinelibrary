@@ -13,6 +13,7 @@ import Header from "./components/Header/Header";
 import Dashboard from "./components/Dashboard/Dashboard";
 import { AuthProvider } from "../../server/src/Authentication/Authentication";
 import Booking from "./pages/Books/Booking";
+import Updating from "./pages/Books/Updating";
 function App() {
   return (
     <>
@@ -32,6 +33,7 @@ function App() {
             <Route path="/UsersLibrary" element={<UsersLibrary />} />
             <Route path="/Dashboard" element={<Dashboard />} />
             <Route path="/Booking/:id" element={<Booking />} />
+            <Route path="/Updating/:id" element={<Updating />} />
           </Routes>
         </BrowserRouter>
       </AuthProvider>
