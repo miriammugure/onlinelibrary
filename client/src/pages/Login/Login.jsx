@@ -39,6 +39,8 @@ function Login() {
       const data = await response.json();
       if (data.success === true) {
         localStorage.setItem("id", data.data.id);
+        localStorage.setItem("firstName", data.data.firstName);
+        localStorage.setItem("lastName", data.data.lastName);
         localStorage.setItem("access_token", data.token);
         setIsLoggedIn(true);
         console.log(data);

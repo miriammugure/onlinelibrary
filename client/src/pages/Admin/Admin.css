@@ -18,6 +18,8 @@
   display: flex;
   flex-direction: column;
   margin-left: 20rem;
+  /* background-color: var(--primary-color); */
+  /* min-height: 100vh; */
 }
 .ActualMember {
   border: 2px solid black;
@@ -86,5 +88,50 @@ border: 2px solid black;
   padding: 1rem;
   border-radius: 10px;
   cursor: pointer;
+  text-transform: capitalize;
+}
+.welcome {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 2rem;
+  text-transform: capitalize;
+  flex-direction: column;
+}
+.welcome h3 {
+  font-family: var(--secondary-font);
+  font-size: 2rem;
+}
+.welcome p {
+  font-family: var(--primary-font);
+  font-size: 2rem;
+}
+.div {
+  display: flex;
+  gap: 1rem;
+}
+.iconify {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 2px solid red;
+  gap: 2rem;
+}
+.showUsers {
+  width: 7rem;
+  border: 2px solid green;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 7rem;
+}
+.showUsers svg {
+  font-size: 2rem;
+}
+.showUsers p {
+  font-size: 1rem;
+  font-family: var(--secondary-font);
+  font-weight: bold;
   text-transform: capitalize;
 }
