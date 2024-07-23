@@ -1,6 +1,65 @@
 form {
   display: flex;
   flex-direction: column;
-  width: 50%;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
   gap: 1rem;
+  text-transform: capitalize;
+  font-family: var(--primary-font);
+}
+form input {
+  height: 2rem;
+  padding-left: 2rem;
+  border-radius: 5px;
+  border: none;
+  width: 50%;
+}
+form button {
+  /* width: 50%; */
+  height: 3rem;
+  background-color: var(--yellow-color);
+  color: var(--primary-color);
+  border: none;
+  display: flex;
+  padding: 1rem;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  transition: all 1s;
+  text-transform: capitalize;
+  border-radius: 5px;
+}
+form button:hover {
+  border: 2px solid var(--yellow-color);
+  background-color: var(--primary-color);
+  color: var(--yellow-color);
+}
+.registerContainer {
+  background-color: var(--primary-color);
+  color: var(--yellow-color);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  /* align-items: center; */
+  justify-content: center;
+}
+.formRegister {
+  border: 2px solid red;
+  display: flex;
+  padding: 2rem;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.registerContainer p {
+  text-transform: capitalize;
+  font-family: var(--secondary-font);
+  margin-top: 1rem;
+}
+.links {
+  text-decoration: none;
+  font-size: 1rem;
+  color: white;
+  font-family: var(--primary-font);
 }

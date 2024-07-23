@@ -70,6 +70,9 @@ function Login() {
   return (
     <div>
       <div className="registerContainer">
+        <div className="title">
+          <h3>log in</h3>
+        </div>
         <div className="formRegister">
           <form action="" onSubmit={formik.handleSubmit}>
             <label htmlFor="emailAddress">email adress</label>
@@ -96,10 +99,16 @@ function Login() {
             {formik.touched.password && formik.errors.password && (
               <p>{formik.errors.password}</p>
             )}
-            <button type="submit">request for an account</button>
+            <button type="submit">log in</button>
           </form>
 
           {/* <p>{error}</p> */}
+          <p>
+            don't have an account?
+            <Link to="/Register" className="links">
+              get here
+            </Link>{" "}
+          </p>
         </div>
       </div>
     </div>

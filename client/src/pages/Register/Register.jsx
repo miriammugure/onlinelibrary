@@ -65,6 +65,9 @@ function Register() {
   return (
     <div>
       <div className="registerContainer">
+        <div className="title">
+          <h3>request for an account</h3>
+        </div>
         <div className="formRegister">
           <form action="" onSubmit={formik.handleSubmit}>
             <label htmlFor="firstName">first name</label>
@@ -132,7 +135,10 @@ function Register() {
           <p>{error}</p>
 
           <p>
-            don't have an account?<Link to="/Login">log in</Link>{" "}
+            don't have an account?
+            <Link to="/Login" className="links">
+              log in
+            </Link>{" "}
           </p>
         </div>
       </div>
