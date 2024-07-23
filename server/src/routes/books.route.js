@@ -5,6 +5,7 @@ import {
   deleteBooks,
   getBooks,
   getBooksById,
+  updateBook,
 } from "../controllers/books.controllers.js";
 import { verifyAdmin } from "../middlewares/verifyAdmin.middleware.js";
 import { verifyMember } from "../middlewares/verifyApprovedUser.middleware.js";
@@ -18,5 +19,6 @@ router.post("/members/bookings", verifyMember, createBooking);
 router.get("/members/getbooks", verifyMember, getBooks);
 router.get("/members/getbooks/:id", verifyMember, getBooksById);
 router.delete("/deletebooks/:id", verifyAdmin, deleteBooks);
+router.patch("/updatebooks/:id", verifyAdmin, updateBook);
 
 export default router;

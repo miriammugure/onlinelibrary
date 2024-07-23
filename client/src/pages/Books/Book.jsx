@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import axios from "axios";
 import toast from "react-simple-toasts";
 import "react-simple-toasts/dist/theme/dark.css";
@@ -56,21 +56,24 @@ function Book() {
 
       if (result && result.data) {
         console.log("Result Data:", result.data);
-        if (result.data.public_id) {
-          const uploadedImg = result.data.public_id;
-          // console.log(uploadedImg)
-          setUploadImg(uploadedImg);
-          toast(data.message, { theme: "success" });
-        } else {
-          console.log("public_id is undefined in the response data");
-        }
+        toast(result.data.message, { theme: "success" });
+        // if (result.data.public_id) {
+        //   const uploadedImg = result.data.public_id;
+        //   // console.log(uploadedImg)
+        //   setUploadImg(uploadedImg);
+        //   toast(message, { theme: "success" });
+        // } else {
+        //   console.log("public_id is undefined in the response data");
+        // }
       }
     } catch (error) {
       console.log("Error during handleSubmit:", error);
-      toast(massage, { theme: "failure" });
+      toast(message, { theme: "failure" });
     }
   };
-
+  useEffect(() => {
+    handleSubmit();
+  }, []);
   return (
     <div>
       <Dashboard />
@@ -94,6 +97,7 @@ function Book() {
                 setAuthor(e.target.value);
               }}
             />
+
             <label htmlFor="description">description</label>
             <input
               type="text"

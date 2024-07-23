@@ -36,6 +36,10 @@ function Register() {
       const data = await response.json();
       if (data.success === true) {
         console.log(data);
+        toast(data.message, {
+          theme: "success",
+          duration: 4000,
+        });
       } else {
         toast(data.message),
           {

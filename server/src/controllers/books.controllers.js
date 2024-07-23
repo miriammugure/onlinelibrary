@@ -101,3 +101,22 @@ export const getBooksById = async (req, res) => {
     res.status(500).json({ success: false, message: error.message });
   }
 };
+export const updateBook = async (req, res) => {
+  const { image, title, description, author, amount } = req.body;
+  const id = req.params.id;
+  try {
+    const updatedBook = await prisma.books.update({
+      where: { id: id },
+      data: {
+        image,
+        title,
+        description,
+        author,
+        amount,
+      },
+    });
+    res.json({ success: true, data: updatedBook });
+  } catch (error) {
+    res.status(500).json({ success: false, message: error });
+  }
+};

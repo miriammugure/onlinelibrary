@@ -1,0 +1,75 @@
+.homeContainer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+
+  background-color: var(--primary-color);
+}
+.homeInfo {
+  color: var(--yellow-color);
+  width: 30rem;
+  height: 20rem;
+  display: flex;
+  flex-direction: column;
+  padding: 2rem;
+  /* justify-content: center; */
+  align-items: center;
+  gap: 1rem;
+  /* border: 2px solid white; */
+}
+.actualHome {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  gap: 2rem;
+
+  padding: 2rem;
+}
+.homeInfo h4 {
+  font-family: var(--secondary-font);
+  text-transform: capitalize;
+  font-size: 2rem;
+}
+.homeInfo p {
+  text-transform: capitalize;
+  font-family: var(--secondary-font);
+}
+.homeInfo button {
+  background-color: var(--yellow-color);
+  color: var(--primary-color);
+  border: none;
+  height: 3rem;
+  width: 7rem;
+  font-weight: 500;
+  cursor: pointer;
+  text-transform: capitalize;
+  border-radius: 5px;
+  font-family: var(--secondary-font);
+  font-size: 1rem;
+  transition: all 1s;
+}
+.homeInfo button:hover {
+  border: 2px solid var(--yellow-color);
+  background-color: var(--primary-color);
+  color: var(--yellow-color);
+}
+.homeimg {
+  width: 20rem;
+  height: 30rem;
+  /* border: 2px solid red; */
+  overflow: hidden;
+  border-radius: 10px;
+}
+.homeimg img {
+  width: 100%;
+  height: 100%;
+  display: block;
+  transition: all 2s;
+  /* object-fit: cover; */
+
+  object-position: center;
+}
+.homeimg img:hover {
+  transform: scale(1.2);
+}

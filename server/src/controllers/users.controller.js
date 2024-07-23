@@ -35,7 +35,9 @@ export const createUser = async (req, res) => {
         approvedAccount: true,
       },
     });
-    res.status(200).json({ success: true, message: newUser });
+    res
+      .status(200)
+      .json({ success: true, message: "account requested successfully" });
     // console.log(newUser);
   } catch (error) {
     res.status(500).json({ success: false, message: error.message });
