@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import "./Register.css";
+import { useNavigate } from "react-router-dom";
 import toast from "react-simple-toasts";
 import "react-simple-toasts/dist/theme/dark.css";
 import "react-simple-toasts/dist/theme/success.css";
@@ -10,6 +11,8 @@ import { useFormik } from "formik";
 import * as Yup from "yup";
 
 function Register() {
+  const navigate = useNavigate();
+
   const [error, setError] = useState("");
   const validationSchema = Yup.object({
     firstName: Yup.string("name must be a string").required(
@@ -40,6 +43,7 @@ function Register() {
           theme: "success",
           duration: 4000,
         });
+        navigate("/Welcome");
       } else {
         toast(data.message),
           {

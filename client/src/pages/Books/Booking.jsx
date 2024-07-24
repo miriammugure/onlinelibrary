@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useContext } from "react";
 import { useParams } from "react-router-dom";
+import "./Book.css";
 import toast from "react-simple-toasts";
 import "react-simple-toasts/dist/theme/dark.css";
 import "react-simple-toasts/dist/theme/failure.css";
@@ -106,7 +107,7 @@ function Booking() {
       <div className="title">
         <h3>Book here</h3>
       </div>
-      <div className="actualBooking">
+      <div className="actualBookings">
         {loading ? (
           <p>Loading...</p>
         ) : error ? (
@@ -141,7 +142,7 @@ function Booking() {
                 onChange={(e) => setReturnDate(e.target.value)}
                 required
               />
-
+              <label htmlFor="userId">user id</label>
               {isLoggedIn && (
                 <input
                   type="text"

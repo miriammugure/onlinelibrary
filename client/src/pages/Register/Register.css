@@ -45,7 +45,6 @@ form button:hover {
   justify-content: center;
 }
 .formRegister {
-  border: 2px solid red;
   display: flex;
   padding: 2rem;
   flex-direction: column;

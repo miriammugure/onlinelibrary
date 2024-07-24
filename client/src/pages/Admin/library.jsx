@@ -74,7 +74,7 @@ function Library() {
         <Dashboard />
         <div className="flexContainer">
           <div className="title">
-            <h3 className="title">
+            <h3 className="title1">
               {loading ? <p>Please wait...</p> : <p>See books here:</p>}
             </h3>
           </div>

@@ -41,8 +41,8 @@ function UsersLibrary() {
   return (
     <div>
       <div className="getMembersContainer">
-        <div className="title">
-          <h3 className="title">
+        <div className="title1">
+          <h3 className="title1">
             {loading ? <p>Please wait...</p> : <p>See members here:</p>}
           </h3>
           <div className="seeContainers">
@@ -60,7 +60,7 @@ function UsersLibrary() {
                       <p>{currentBook.description}</p>
                       <h5>${currentBook.amount} per/day</h5>
                       <Link to={`/Booking/${currentBook.id}`}>
-                        <button>rent now</button>
+                        <button className="rentNow">rent now</button>
                       </Link>
                     </div>
                   </div>

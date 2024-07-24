@@ -1,12 +1,11 @@
-.getMembersContainer {
+/* .getMembersContainer {
   border: 2px solid red;
-}
+} */
 .title {
   text-transform: capitalize;
   text-align: center;
 }
 .seeContainers {
-  border: 2px solid green;
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
@@ -16,6 +15,7 @@
 }
 .ActualContainers {
   border: 2px solid black;
+  color: var(--primary-color);
   width: 30rem;
   padding: 1rem;
   display: flex;
@@ -24,6 +24,12 @@
   align-items: center;
   border-radius: 10px;
   transition: all 6s ease-in-out;
+}
+.title1 {
+  color: black;
+  text-align: center;
+  font-family: var(--primary-font);
+  text-transform: capitalize;
 }
 .formContainer {
   display: flex;
@@ -36,7 +42,6 @@
   min-height: 100vh;
 }
 .bookImage {
-  border: 2px solid red;
   width: 12rem;
   height: 12rem;
   border-radius: 10px;
@@ -52,7 +57,6 @@
   text-align: center;
   text-transform: capitalize;
   padding: 1rem;
-  border: 2px solid red;
 }
 .bookDetails h3 {
   font-weight: bold;
@@ -88,7 +92,6 @@
   justify-content: center;
   align-items: center;
   padding: 1rem;
-  border: 2px solid green;
 }
 .button2 button {
   border: none;
@@ -122,4 +125,21 @@
   background-color: var(--primary-color);
   color: var(--yellow-color);
   padding: 2rem;
+}
+.rent {
+  border: none;
+  height: 3rem;
+  background-color: var(--primary-color);
+  color: var(--yellow-color);
+}
+.bookingContainer {
+  background-color: var(--primary-color);
+  min-height: 100vh;
+}
+.title {
+  color: var(--yellow-color);
+  padding: 2rem;
+}
+.actualBookings {
+  color: var(--yellow-color);
 }

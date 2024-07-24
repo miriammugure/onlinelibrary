@@ -80,7 +80,7 @@ function Book() {
       <div className="flexContainer">
         <div className="title">
           {" "}
-          <h3 className="title">
+          <h3 className="title1">
             {loading ? <p>Please wait...</p> : <p>add books</p>}
           </h3>
         </div>

@@ -94,7 +94,7 @@ function GetUsers() {
         <Dashboard />
         <div className="flexContainer">
           <div className="title">
-            <h2 className="title">
+            <h2 className="title1">
               {loading ? <p>Please wait...</p> : <p>See users here:</p>}
             </h2>
           </div>
